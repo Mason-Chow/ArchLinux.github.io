@@ -4,7 +4,7 @@
 
 Downloaded ISO from the download page on the wiki, via MIT.edu
 
-Verified signature via Windows PowerShell using these commands/inputs
+Verified signature via Windows PowerShell using these commands/inputs in windows powershell
 
 ```
 Get-FileHash
@@ -25,7 +25,7 @@ Create a new virtual disk with 20 GB of space, stored as a single file
 Finish creation and boot VM
 
 Once boot page is up, shut down machine
-Open VM directory from VMware and edit the file Arch Linux.vmx, inserting as line 2 `firmware="efi"`
+Open VM directory from VMware and edit the file Arch Linux.vmx, inserting as line 2 `firmware="efi"` to allow it to boot in EUFI mode
 
 Next, I loaded the VM and booted on EUFI mode
 
@@ -49,7 +49,7 @@ run command `timedatectl` to ensure system clock accurate
 
 run command `fdisk -l` to see available disks
 
-run the following commands
+run the following commands to partition the virtual disk, creating a partition of size 500 MiB and one of size 19.5 GB
 ```bash
 fdisk /dev/sda
 n # new partition
@@ -60,7 +60,7 @@ p # primary partition
 
 n
 p
-<enter: default value 1>
+<enter: default value 2>
 <enter: default start>
 <enter: default end>
 
@@ -99,7 +99,7 @@ Generate an fstab file using `genfstab -U /mnt >> /mnt/etc/fstab`
 run `hwclock --systohc` to generate /etc/adjtime
 
 ### Localization
-use nano to edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8
+use nano to edit /etc/locale.gen and uncomment `en_US.UTF-8 UTF-8`
 
 Generate locales by running `locale-gen`
 
@@ -239,6 +239,7 @@ After installing fish using `sudo pacman -S fish` and entering the shell using `
 Bye-bye fish. `sudo pacman -R fish`
 
 Hello zsh:
+The following commands downloaded, configured, and set zsh as the default shell
 ```
 sudo pacman -S zsh
 zsh
@@ -265,7 +266,7 @@ alias ll='ls -la'
 source .zshrc # apply changes
 ```
 
-## SSH
+## Download SSH
 ```bash
 sudo pacman -S openssh
 ```
