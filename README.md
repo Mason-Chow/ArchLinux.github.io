@@ -275,3 +275,25 @@ sudo pacman -S openssh
 ```zsh
 sudo pacman -Sy firefox
 ```
+
+## Installing yay
+
+download git
+```
+sudo pacman -S git
+```
+
+clone the yay git repository
+```
+cd /opt
+sudo git clone https://aur.archlinux.org/yay-git.git
+```
+
+change file permissions from root to sudo user with `sudo chown -R Mason ./yay-git`
+
+build the package with PKGBUILD
+```
+cd yay-git
+sudo pacman -S --needed base-devel
+makepkg -si
+```
