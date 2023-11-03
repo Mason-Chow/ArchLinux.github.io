@@ -1,5 +1,3 @@
-# ArchLinux.github.io
-
 # Arch Install
 
 ## Downloaded ISO
